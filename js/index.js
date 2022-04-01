@@ -1,17 +1,21 @@
 "use strict";
 
-// url =>  https://ehbchatapp.herokuapp.com/
-
-const chat = {
-    author: "yourName",
+const app = {
+    video: document.querySelector("#videoElement"),
     init() {
+        app.startVideo();
     },
-    sendMessage() {
-    },
-    fetchMessages() {
-    },
-    renderMessage(message) {
+    startVideo() {
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
     }
+};
 
-}
-chat.init()
+app.init();
